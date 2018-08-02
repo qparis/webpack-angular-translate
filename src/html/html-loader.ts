@@ -51,7 +51,7 @@ function loader(source: string, sourceMaps: any): void|string {
     new StatefulHtmlParser(loader).parse(source);
 
     let result = source;
-    if (!loader.options.debug) {
+    if (!loader.options || !loader.options.debug) {
         result = removeSuppressTranslationErrorAttributes(source);
     }
 
